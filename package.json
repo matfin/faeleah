@@ -6,6 +6,15 @@
   "repository": "git@github.com:matfin/faeleah.git",
   "author": "Matthew Finucane <matfin@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "checks": "yarn coverage && yarn lint && yarn csslint",
+    "csslint": "stylelint \"./src/styles/**/*\" \"./src/**/*.css.tsx\"",
+    "dev": "next",
+    "lint": "eslint '*/**/*.{js,ts,tsx}'",
+    "start": "next start",
+    "test": "jest",
+    "coverage": "jest --collect-coverage"
+  },
   "dependencies": {
     "@mdx-js/loader": "^1.6.19",
     "@next/mdx": "^9.5.5",
