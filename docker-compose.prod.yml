@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  serve:
+    environment:
+      - NGINX_HOST=faeleah.art
+      - SSL_CERTIFICATE=fullchain.pem
+      - SSL_CERTIFICATE_KEY=privkey.pem
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt:ro
+      - static-content:/opt/public:ro
