@@ -17,15 +17,15 @@ module.exports = {
     'node_modules',
   ],
   moduleDirectories: ['node_modules'],
-  // moduleNameMapper: {
-  //   '^assets/(.*)$': '<rootDir>/assets/$1',
-  //   '^components/(.*)$': '<rootDir>/src/components/$1',
-  //   '^hooks/(.*)$': '<rootDir>/src/hooks/$1',
-  //   '^lib/(.*)$': '<rootDir>/src/lib/$1',
-  //   '^models/(.*)$': '<rootDir>/src/models/$1',
-  //   '^pages/(.*)$': '<rootDir>/src/pages/$1',
-  //   '^styles/(.*)$': '<rootDir>/src/styles/$1',
-  //   '^(config|styles|testutils|utils)$': '<rootDir>/src/$1',
-  // },
+  moduleNameMapper: {
+    '^assets/(.*)$': '<rootDir>/assets/$1',
+    '^components/(.*)$': '<rootDir>/src/components/$1',
+    '^hooks/(.*)$': '<rootDir>/src/hooks/$1',
+    '^lib/(.*)$': '<rootDir>/src/lib/$1',
+    '^models/(.*)$': '<rootDir>/src/models/$1',
+    '^pages/(.*)$': '<rootDir>/src/pages/$1',
+    '^styles/(.*)$': '<rootDir>/src/styles/$1',
+    '^(config|styles|testutils|utils)$': '<rootDir>/src/$1',
+  },
   testEnvironment: 'jest-environment-jsdom-sixteen'
 };
