@@ -3,7 +3,7 @@ version: '3'
 services:
   build:
     container_name: build
-    image: matfin/faeleah:latest
+    image: matfin/faeleah-build:latest
     build:
       context: .
       dockerfile: .docker/next/Dockerfile
@@ -11,9 +11,9 @@ services:
       - static-content:/opt/build/out
     command: yarn deploy
 
-  serve:
-    container_name: serve
-    image: matfin/faeleah:latest
+  nginx:
+    container_name: nginx
+    image: matfin/faeleah-nginx:latest
     build:
       context: .
       dockerfile: .docker/nginx/Dockerfile
