@@ -6,6 +6,8 @@ describe('header tests', (): void => {
   const defaultProps: Props = {};
 
   it('should render the component', (): void => {
-    expect(render(<Header {...defaultProps} />)).toBeTruthy();
+    const { getByText } = render(<Header {...defaultProps} />);
+
+    expect(getByText('Fae Leah Art')).toBeTruthy();
   });
 });
