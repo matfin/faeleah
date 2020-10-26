@@ -10,6 +10,11 @@ export type Breakpoints = {
 export type Colours = {
   primary: string;
   secondary: string;
+  secondaryOpaque: string;
+};
+
+export type Dimensions = {
+  navigationHeight: number;
 };
 
 export type FontSizes = {
