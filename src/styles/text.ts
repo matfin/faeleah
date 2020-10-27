@@ -30,7 +30,7 @@ const Paragraph = styled.p`
   ${text}
 `;
 
-export const components = {
+export const MDXComponents = {
   h1: Heading,
   h2: SubHeading,
   p: Paragraph,

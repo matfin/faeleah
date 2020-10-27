@@ -1,6 +1,6 @@
 import React from 'react';
 import { act, fireEvent, render } from '@testing-library/react';
-import Layout from '.';
+import Layout, { Props } from '.';
 
 jest.mock('next/head', () => ({
   __esModule: true,
@@ -19,13 +19,20 @@ jest.mock('next/router', () => ({
 }));
 
 describe('Layout tests', (): void => {
+  const defaultProps: Props = {
+    pageMetaData: {
+      title: 'Test',
+      description: 'Test',
+    },
+  };
+
   it('renders the component', (): void => {
-    expect(render(<Layout />)).toBeTruthy();
+    expect(render(<Layout {...defaultProps} />)).toBeTruthy();
   });
 
   it('renders children', (): void => {
     const wrapper = render(
-      <Layout>
+      <Layout {...defaultProps}>
         <p>Test</p>
       </Layout>,
     );
@@ -37,7 +44,7 @@ describe('Layout tests', (): void => {
   });
 
   it('prevents body scroll when navigation is revealed', async (): Promise<void> => {
-    const view = render(<Layout />);
+    const view = render(<Layout {...defaultProps} />);
     const { container } = view;
     const button = container.querySelector('button');
 
@@ -58,7 +65,7 @@ describe('Layout tests', (): void => {
   });
 
   it('dismisses navigation on title click', async (): Promise<void> => {
-    const view = render(<Layout />);
+    const view = render(<Layout {...defaultProps} />);
     const { container, getByTestId } = view;
     const button = container.querySelector('button');
     const title = getByTestId('title');

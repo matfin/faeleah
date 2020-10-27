@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { GlobalStyle } from 'styles';
+import { PageMetaData } from 'models';
+import { GlobalStyle, MDXComponents } from 'styles';
 import Meta from 'components/meta';
 import { Header, GridContainer, Main, Navigation } from './layout.css';
 
 export interface Props {
   children?: JSX.Element | JSX.Element[] | string;
+  pageMetaData: PageMetaData;
 }
 
 const setBodyOverflow = (overflow: boolean): void => {
@@ -16,7 +18,7 @@ const setBodyOverflow = (overflow: boolean): void => {
   }
 };
 
-const Layout = ({ children }: Props): JSX.Element => {
+const Layout = ({ children, pageMetaData }: Props): JSX.Element => {
   const [navRevealed, setNavRevealed] = useState<boolean>(false);
   const toggleNav = (): void => {
     setNavRevealed(!navRevealed);
@@ -29,8 +31,8 @@ const Layout = ({ children }: Props): JSX.Element => {
 
   return (
     <>
-      <Meta />
-      <MDXProvider>
+      <Meta pageMetaData={pageMetaData} />
+      <MDXProvider components={MDXComponents}>
         <GridContainer>
           <Header onMenuButtonClick={toggleNav} onTitleClick={dismissNav} navRevealed={navRevealed} />
           <Navigation onNavigate={dismissNav} isRevealed={navRevealed} />

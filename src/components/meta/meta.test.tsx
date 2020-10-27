@@ -2,10 +2,26 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Meta, { Props } from '.';
 
-describe('Meta tests', (): void => {
-  const defaultProps: Props = {};
+interface MockedHeadProps {
+  children: JSX.Element;
+}
 
-  it('should render the component', (): void => {
-    expect(render(<Meta {...defaultProps} />)).toBeTruthy();
+const MockedHead = ({ children }: MockedHeadProps): JSX.Element => <>{children}</>;
+// eslint-disable-next-line react/display-name
+jest.mock('next/head', () => ({ children }: MockedHeadProps) => <MockedHead>{children}</MockedHead>);
+
+describe('Meta tests', (): void => {
+  const defaultProps: Props = {
+    pageMetaData: {
+      title: 'Test',
+      description: 'Description',
+    },
+  };
+
+  it('should render the component with the title and description', (): void => {
+    const { container, getByText } = render(<Meta {...defaultProps} />);
+
+    expect(getByText('Fae Leah Art and Design - Test')).toBeTruthy();
+    expect(container.querySelector('meta[name="description"]').getAttribute('content')).toEqual('Description');
   });
 });

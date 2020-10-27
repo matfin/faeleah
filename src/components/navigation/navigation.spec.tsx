@@ -1,7 +1,7 @@
 import React from 'react';
 import { act } from 'react-dom/test-utils';
 import { fireEvent, render } from '@testing-library/react';
-import Navigation, { Props } from './navigation';
+import Navigation, { Props } from '.';
 
 jest.mock('next/link', () => ({ children }) => children);
 jest.mock('next/router', () => ({

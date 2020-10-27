@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { animationCurve, colours, dimensions, layers, media } from 'styles';
 import HeaderComponent from 'components/header';
-import NavigationComponent from 'components/navigation/navigation';
+import NavigationComponent from 'components/navigation';
 
 interface NavProps {
   isRevealed: boolean;
